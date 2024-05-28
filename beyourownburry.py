@@ -4,22 +4,15 @@ import time
 from bs4 import BeautifulSoup
 
 # Base URL for the SEC data
-# working example https://www.sec.gov/Archives/edgar/data/806085/
-base_url = "https://www.sec.gov/Archives/edgar/data/CIK##########/"
+base_url = "https://www.sec.gov/Archives/edgar/data/1326380/"
 
 # User-Agent header
 headers = {
-    "User-Agent": "MarginCall/michaeldouglas@fallingdown.com"  # <<<<<<<< change this to something fun
+    "User-Agent": "MarginCall/michaeldouglas@fallingdown.com"  # Replace with your actual name and email
 }
 
 # Windows Pathing Format Load the list of subdirectories from the uploaded file
-# Full Manual List is the numeric folder names of ALL the folders listed on the main page of each CIK. 
-# example of a URL https://www.sec.gov/Archives/edgar/data/806085/000119312524081676. The fullmanuallist.txt should contain JUST these '000119312524081676'
-## The script then finds the text file ON that unique page / folder. For example It will then download https://www.sec.gov/Archives/edgar/data/806085/000119312524081676/0001193125-24-081676.txt
-## The script then marks which ones were successful as it iterates through your Full Manual List text file. So even when the script stops/ends it picks back up where you left off.
-## 
-
-input_file_path = r"C:\\folder\\fullmanuallist.txt"
+input_file_path = r"C:\\gamestop\\fullmanuallist.txt"
 output_file_path = r"C:\\gamestop\\completedtasks.txt"
 
 with open(input_file_path, 'r') as file:
@@ -77,8 +70,7 @@ def download_file(url, directory, retries=1, delay=1):
     return False
 
 # Step 1: Prepare the download directory
-## I usually name this 'folder' the CIK# or the company name i am researching
-download_directory = r"C:\\folder"
+download_directory = r"C:\\gamestop"
 os.makedirs(download_directory, exist_ok=True)
 print(f"Download directory: {download_directory}")
 
