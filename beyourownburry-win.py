@@ -3,17 +3,20 @@ import os
 import time
 from bs4 import BeautifulSoup
 
+#########################################
+####### STEP ONE COLLECT THE DATA #######
+#########################################
 # Base URL for the SEC data
 base_url = "https://www.sec.gov/Archives/edgar/data/1326380/"
 
 # User-Agent header
 headers = {
-    "User-Agent": "MarginCall/michaeldouglas@fallingdown.com"  # Replace with your actual name and email
+    "User-Agent": "KennyMayo/anon@aol.com"  # Replace with your actual name and email
 }
 
 # Windows Pathing Format Load the list of subdirectories from the uploaded file
-input_file_path = r"C:\\gamestop\\fullmanuallist.txt"
-output_file_path = r"C:\\gamestop\\completedtasks.txt"
+input_file_path = r"C:\\folder1\\listsubfolders.txt"
+output_file_path = r"C:\\folder2\\completedpulls.txt"
 
 with open(input_file_path, 'r') as file:
     subdirectories = [line.strip() for line in file]
@@ -70,7 +73,7 @@ def download_file(url, directory, retries=1, delay=1):
     return False
 
 # Step 1: Prepare the download directory
-download_directory = r"C:\\gamestop"
+download_directory = r"C:\\downloadfolder"
 os.makedirs(download_directory, exist_ok=True)
 print(f"Download directory: {download_directory}")
 
