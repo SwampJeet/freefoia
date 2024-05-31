@@ -1,22 +1,23 @@
+# IF THINGS ARENT WORKING DONT FORGET TO INITIALIZE YOUR VIRTUAL ENVIRONMENT
+#  source /home/swamp/myenv/bin/activate
+#  THEN RERUN THE PYTHON CODE BRUH
 import requests
 import os
 import time
+from datetime import datetime
 from bs4 import BeautifulSoup
 
-#########################################
-####### STEP ONE COLLECT THE DATA #######
-#########################################
 # Base URL for the SEC data
-base_url = "https://www.sec.gov/Archives/edgar/data/1326380/"
+base_url = "https://www.sec.gov/Archives/edgar/data/0000889664/"
 
 # User-Agent header
 headers = {
-    "User-Agent": "KennyMayo/anon@aol.com"  # Replace with your actual name and email
+    "User-Agent": "realname/realname@realdomain.com"  # Replace with your actual name and email
 }
 
-# Windows Pathing Format Load the list of subdirectories from the uploaded file
-input_file_path = r"C:\\folder1\\listsubfolders.txt"
-output_file_path = r"C:\\folder2\\completedpulls.txt"
+# File Pathing Format
+input_file_path = "/home/swamp/myenv/newdump/sanatizedlist.txt"
+output_file_path = "/home/swamp/myenv/newdump/completedlist.txt"
 
 with open(input_file_path, 'r') as file:
     subdirectories = [line.strip() for line in file]
@@ -28,7 +29,7 @@ else:
     completed_subdirectories = []
 
 # Function to fetch and parse directory HTML with retry mechanism
-def fetch_directory(url, retries=1, delay=2):
+def fetch_directory(url, retries=1, delay=1):
     for attempt in range(retries):
         try:
             response = requests.get(url, headers=headers, timeout=2)
@@ -50,18 +51,27 @@ def extract_txt_links(soup):
             txt_links.append(href)
     return txt_links
 
-# Function to download a single file with retry mechanism
+# Function to download a single file with retry mechanism and logging
 def download_file(url, directory, retries=1, delay=1):
     for attempt in range(retries):
         try:
             print(f"Attempting to download {url}...")
-            response = requests.get(url, headers=headers, timeout=10)
+            response = requests.get(url, headers=headers, timeout=5)
             response.raise_for_status()  # Check for HTTP errors
             filename = os.path.join(directory, os.path.basename(url))
             print(f"Saving to {filename}...")
             with open(filename, 'wb') as file:
                 file.write(response.content)
             print(f"Downloaded: {filename}")
+            
+            # Log the source URL and timestamp
+            timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+            log_filename = os.path.join(directory, os.path.splitext(os.path.basename(url))[0] + '-legal-source-log.txt')
+            with open(log_filename, 'w') as log_file:
+                log_file.write(f"URL: {url}\n")
+                log_file.write(f"Downloaded at: {timestamp}\n")
+            print(f"Logged download details to {log_filename}")
+            
             # Verify file size
             file_size = os.path.getsize(filename)
             print(f"File size: {file_size} bytes")
@@ -73,7 +83,8 @@ def download_file(url, directory, retries=1, delay=1):
     return False
 
 # Step 1: Prepare the download directory
-download_directory = r"C:\\downloadfolder"
+## WHERE YOU ARE DUMPING THE DOWNLOADS TO
+download_directory = "/home/swamp/myenv/newdump/target1/889664/"
 os.makedirs(download_directory, exist_ok=True)
 print(f"Download directory: {download_directory}")
 
