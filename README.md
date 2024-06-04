@@ -24,8 +24,9 @@ pip install requests beautifulsoup4
 - `download_directory`: Directory where downloaded files will be saved.
 - `error_log`: Path to the file where errors will be logged.
 
+```sh
 python scrapeexperiment.py "https://www.sec.gov/Archives/edgar/data/1344184/" "/path/to/base_url.txt" "/path/to/sanitizedlist.txt" "/path/to/completedlist.txt" "/path/to/experimentdump/" "/path/to/error.txt"
-
+```
 
 ## Example Paths
 
