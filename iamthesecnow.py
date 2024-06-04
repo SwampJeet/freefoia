@@ -189,7 +189,8 @@ if __name__ == "__main__":
 
 ###python scrapeexperiment.py "https://www.sec.gov/Archives/edgar/data/806085/" "/home/swamp/myenv/experiment 11/base_url.txt" ###"/home/swamp/myenv/experiment 11/sanatizedlist.txt" "/home/swamp/myenv/experiment 11/completedlist.txt" "/home/swamp/myenv/experiment ###11/experimentdump1/" "/home/swamp/myenv/experiment 11/experimentdump1/error.txt"
 
-
+# IF THINGS ARENT WORKING DONT FORGET TO INITIALIZE YOUR VIRTUAL ENVIRONMENT
+#  source /home/swamp/myenv/bin/activate
 
 
 
