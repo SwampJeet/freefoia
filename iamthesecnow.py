@@ -187,6 +187,7 @@ if __name__ == "__main__":
 #"/path/to/base_url.txt" "/path/to/sanitizedlist.txt" "/path/to/completedlist.txt" 
 #"/path/to/downloadsgetdumped/" "/path/to/error.txt"
 
+###python scrapeexperiment.py "https://www.sec.gov/Archives/edgar/data/806085/" "/home/swamp/myenv/experiment 11/base_url.txt" ###"/home/swamp/myenv/experiment 11/sanatizedlist.txt" "/home/swamp/myenv/experiment 11/completedlist.txt" "/home/swamp/myenv/experiment ###11/experimentdump1/" "/home/swamp/myenv/experiment 11/experimentdump1/error.txt"
 
 
 
