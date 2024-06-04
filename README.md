@@ -9,7 +9,7 @@ This script scrapes subdirectories and downloads .txt files from SEC directories
 
 Install the required packages using pip:
 
-                pip install requests beautifulsoup4
+pip install requests beautifulsoup4
 
 ## Usage
 
