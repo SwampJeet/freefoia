@@ -1,6 +1,6 @@
 ## SEC Scraper
 
-This script scrapes subdirectories and downloads .txt files from SEC directories. It is designed to handle network failures and can resume from where it left off.
+This script scrapes subdirectories and downloads .txt files within. It is designed to handle network failures and can resume from where it left off. Read a user experience and how simple it is to use here ( https://x.com/0x3ny/status/1797809707593424970 )
 
 ## Prerequisites
 
