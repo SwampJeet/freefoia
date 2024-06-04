@@ -38,7 +38,8 @@ python scraperbike.py "https://www.sec.gov/Archives/edgar/data/1344184/" "/path/
 
 ## Script Details
 
-### scrapeexperiment.py
+### scraperbike.py
+### https://www.youtube.com/watch?v=hQGLNPJ9VCE
 
 This script performs the following tasks:
 
